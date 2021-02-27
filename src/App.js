@@ -8,6 +8,7 @@ import HomePage from "./page/homepage/homepage.component.jsx";
 import ShopPage from "./page/shop/shop.component";
 import SignInAndSignUp from "./page/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import CheckoutPage from "./page/checkout/checkout.component.jsx";
+import ContactPage from "./page/contactpage/contactpage.component";
 
 import Header from "./components/header/header.component.jsx";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -46,24 +47,21 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-          <Header />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route path="/checkout" component={CheckoutPage} />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/checkout" component={CheckoutPage} />
 
-            <Route
-              exact
-              path="/signin"
-              render={() =>
-                this.props.currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInAndSignUp />
-                )
-              }
-            />
-          </Switch>
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
+            }
+          />
+        </Switch>
       </div>
     );
   }
