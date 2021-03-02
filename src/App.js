@@ -9,6 +9,7 @@ import ShopPage from "./page/shop/shop.component";
 import SignInAndSignUp from "./page/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import CheckoutPage from "./page/checkout/checkout.component.jsx";
 import ContactPage from "./page/contactpage/contactpage.component";
+import ErrorPage from "./page/404/errorpage.component.jsx";
 
 import Header from "./components/header/header.component.jsx";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -50,10 +51,9 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/checkout" component={CheckoutPage} />
-
+          <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
             path="/signin"
@@ -61,6 +61,7 @@ class App extends React.Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
             }
           />
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     );
