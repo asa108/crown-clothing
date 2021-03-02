@@ -1,77 +1,59 @@
 import React from "react";
+import emailjs from "emailjs-com";
+
 import "./contact-form.style.scss";
 
-import FormInput from "../form-input/form-input.componnet";
-import CustomButton from "../custom-button/custom-button.component";
+export default function ContactForm() {
+  function sendEmail(e) {
+    e.preventDefault();
 
-class ContactForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      fullName: "",
-      email: "",
-      message: "",
-    };
+    emailjs
+      .sendForm(
+        "service_waygfht",
+        "template_ui5slu8",
+        e.target,
+        "user_3elTiMtqMmH9RkopqS50M"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Email had sent successfully");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Email had failed. Try gain later");
+        }
+      );
   }
-  handleSubmit = async (event) => {
-    event.preventDefault();
 
-    const { fullName, email, message } = this.state;
-    if (fullName == "" && email == "" && message == "") {
-      alert("入力内容に不具合があります");
-    }
-  };
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-
-    this.setState({ [name]: value });
-  };
-
-  submitContactForm = () => {};
-
-  render() {
-    const { fullName, email, message } = this.state;
-
-    return (
-      <div className="contact">
-        <h2 className="title">Contact Us</h2>
-        <span>
-          Please fill this out correctly.We will response in a three days
-        </span>
-        <form className="contact-form" onSubmit={this.handleSubmit}>
-          <FormInput
-            name="name"
-            type="text"
-            value={fullName}
-            onChange={this.handleChange}
-            required
-            label="Name"
+  return (
+    <div className="contact-container">
+      <h2>Contact Us</h2>
+      <span>
+        Please fill this form out.
+        <br />
+        We will reach you in a three days
+      </span>
+      <form className="contact-form" onSubmit={sendEmail}>
+        <div className="group-contact">
+          <input
+            className="form-input-contact"
+            type="hidden"
+            name="contact_number"
           />
-          <FormInput
-            name="email"
+          <label className="form-input-label-contact name">Name</label>
+          <input className="form-input-contact" type="text" name="user_name" />
+          <label className="form-input-label-contact email">Email</label>
+          <input
+            className="form-input-contact"
             type="email"
-            value={email}
-            onChange={this.handleChange}
-            required
-            label="Email"
+            name="user_email"
           />
-          <FormInput
-            className="textarea"
-            name="message"
-            type="text"
-            value={message}
-            onChange={this.handleChange}
-            required
-            label="Message"
-          />
-        </form>
-        <CustomButton type="submit" contact>
-          Submit
-        </CustomButton>
-      </div>
-    );
-  }
+          <label className="form-input-label-contact message">Message</label>
+          <textarea className="form-input-contact message" name="message" />
+          <input type="submit" value="Send" className="custom-button-contact" />
+        </div>
+      </form>
+    </div>
+  );
 }
-
-export default ContactForm;
