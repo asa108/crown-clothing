@@ -7,8 +7,12 @@ $main-color: black;
   color: $main-color;
 }
 .contact-container{
+  width: 380px;
   margin: 20px 10px;
   text-align: center;
+       @media screen and (max-width:800px){
+       width: 100%;   
+    }
 
 .contact-form{
   margin-top: 50px;
@@ -35,6 +39,11 @@ $main-color: black;
     border-bottom: 1px solid $sub-color;
     margin: 25px 0;
     outline: none;
+
+    // &.message{
+    //   margin-top: 20px;
+    //   border: 1px solid $sub-color;
+    // }
   }
 
   .form-input-label-contact {
@@ -49,22 +58,21 @@ $main-color: black;
       left: 15px;
     }
 
-        &.email{
+     &.email{
       position: absolute;
-      top: 60px;
+      top: 50px;
       left: 15px;
     }
 
-        &.message{
+    &.message{
       position: absolute;
-      top: 130px;
+      top: 120px;
       left: 15px;
     }
   }
 
   .custom-button-contact{
-   min-width: 165px;
-  width: auto;
+  min-width: 165px;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
@@ -80,6 +88,7 @@ $main-color: black;
   display: flex;
   justify-content: center;
   border-radius: 5px;
+  margin: 0 auto;
 
     @media screen and (max-width:800px){
       width: 260px;

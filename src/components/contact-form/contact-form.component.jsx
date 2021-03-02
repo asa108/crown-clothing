@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 
 import "./contact-form.style.scss";
 
-export default function ContactUs() {
+export default function ContactForm() {
   function sendEmail(e) {
     e.preventDefault();
 
@@ -25,9 +25,13 @@ export default function ContactUs() {
   }
 
   return (
-    <div className='contact-container'>
+    <div className="contact-container">
       <h2>Contact Us</h2>
-      <span>Please fill this form out.<br/>We will reach you in a three days</span>
+      <span>
+        Please fill this form out.
+        <br />
+        We will reach you in a three days
+      </span>
       <form className="contact-form" onSubmit={sendEmail}>
         <div className="group-contact">
           <input
@@ -44,7 +48,7 @@ export default function ContactUs() {
             name="user_email"
           />
           <label className="form-input-label-contact message">Message</label>
-          <textarea className="form-input-contact" name="message" />
+          <textarea className="form-input-contact message" name="message" />
           <input type="submit" value="Send" className="custom-button-contact" />
         </div>
       </form>
