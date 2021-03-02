@@ -9,8 +9,8 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "service_btiolc4",
-        "template_raro4bx",
+        "service_waygfht",
+        "template_ui5slu8",
         e.target,
         "user_3elTiMtqMmH9RkopqS50M"
       )
@@ -21,7 +21,7 @@ export default function ContactForm() {
         },
         (error) => {
           console.log(error.text);
-          alert("Email had failed. Try it later.");
+          alert("Email had failed. Try gain later");
         }
       );
   }
