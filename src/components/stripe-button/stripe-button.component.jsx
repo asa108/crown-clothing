@@ -14,7 +14,7 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label="Buy it now"
-      name="CROWN Clithing Ltd."
+      name="CROWN Clothing Ltd."
       billingAddress
       shippingAddress
       //   image="https://sendeyo.com/up/d/f3eb2117da"
