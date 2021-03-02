@@ -17,9 +17,11 @@ export default function ContactForm() {
       .then(
         (result) => {
           console.log(result.text);
+          alert("Email had sent successfully");
         },
         (error) => {
           console.log(error.text);
+          alert("Email had failed. Try it later.");
         }
       );
   }
