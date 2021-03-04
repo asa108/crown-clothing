@@ -1,33 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
 import "./contact-form.style.scss";
+import ActionAlerts from "../alert/alert.component";
 
-export default function ContactForm() {
-  function sendEmail(e) {
+const ContactUs = () => {
+  // componentを表示するかしないか
+  const [whichAlert, setWhichAlert] = React.useState(false);
+
+  const successAlert = () => {
+    setWhichAlert(true);
+  };
+
+  const failAlert = () => {
+    setWhichAlert(false);
+  };
+
+  // 最初alertが表示か非表示か
+  const [showAlert, setShowAlert] = React.useState(false);
+
+  const showAlertComponent = () => {
+    setShowAlert(true);
+  }
+
+    const hideAlertComponent = () => {
+      setShowAlert(false);
+    };
+  
+
+  const sendEmail  =  (e)  => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_waygfht",
-        "template_ui5slu8",
+        "service_waygfht", 
+        "template_ui5slu8", 
         e.target,
         "user_3elTiMtqMmH9RkopqS50M"
       )
       .then(
         (result) => {
           console.log(result.text);
-          alert("Email had sent successfully");
+          successAlert(); 
+          showAlertComponent();
         },
         (error) => {
           console.log(error.text);
-          alert("Email had failed. Try gain later");
+          failAlert(); 
+          showAlertComponent();
         }
       );
-  }
+  };
 
   return (
     <div className="contact-container">
+      <div className={`${showAlert ? "show-alert" : "hide-alert"}`}>
+        {whichAlert ? (
+          <ActionAlerts
+            message="This is a success alert — check it out!"
+            severity="success"
+          />
+        ) : (
+          <ActionAlerts
+            message="This is a fail alert — check it out!"
+            severity="error"
+          />
+        )}
+      </div>
       <h2>Contact Us</h2>
       <span>
         Please fill this form out.
@@ -56,4 +95,6 @@ export default function ContactForm() {
       </form>
     </div>
   );
-}
+};
+
+export default ContactUs;
