@@ -9,11 +9,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  closeAlert: {
-    visibility: "hidden",
-  },
+  closeAlert: {},
   openAlert: {
-    visibility: "visible",
+    display: "block",
   },
 }));
 

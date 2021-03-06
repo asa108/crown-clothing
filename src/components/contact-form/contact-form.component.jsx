@@ -54,19 +54,6 @@ const ContactUs = () => {
 
   return (
     <div className="contact-container">
-      <div className={`${showAlert ? "show-alert" : "hide-alert"}`}>
-        {whichAlert ? (
-          <ActionAlerts
-            message="Your message has been sent!Thank you."
-            severity="success"
-          />
-        ) : (
-          <ActionAlerts
-            message="Your message has been failed! Please try agin."
-            severity="error"
-          />
-        )}
-      </div>
       <h2>Contact Us</h2>
       <span>
         Please fill this form out.
@@ -93,6 +80,19 @@ const ContactUs = () => {
           <input type="submit" value="Send" className="custom-button-contact" />
         </div>
       </form>
+      <div className={`${showAlert ? "show-alert" : "hide-alert"}`}>
+        {whichAlert ? (
+          <ActionAlerts
+            message="Your message has been sent!Thank you."
+            severity="success"
+          />
+        ) : (
+          <ActionAlerts
+            message="Your message has been failed! Please try agin."
+            severity="error"
+          />
+        )}
+      </div>
     </div>
   );
 };

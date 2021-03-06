@@ -8,19 +8,11 @@ $main-color: black;
 }
 .contact-container{
   width: 380px;
-  margin: 20px 10px;
+  height: 500px;
   text-align: center;
        @media screen and (max-width:800px){
        width: 100%;   
     }
-
-    .hide-alert{
-      visibility: hidden;
-    }
-    .show-alert{
-      visibility: visible;
-    }
-
 
 .contact-form{
   margin-top: 50px;
@@ -111,6 +103,15 @@ $main-color: black;
 }
 
 }
+
+    .hide-alert{
+      display: none;
+      margin: 20px auto;
+    }
+    .show-alert{
+      display:block;
+      margin: 20px auto;
+    }
 
 
 }
