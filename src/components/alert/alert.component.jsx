@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
 const ActionAlerts = ({ message, severity }) => {
   const classes = useStyles();
 
+  const [opendialog, setOpendialog] = React.useState(true);
+  const handleOpen = () => {
+    setOpendialog(true);
+  };
   const handleClose = () => {
     setOpendialog(false);
     console.log(opendialog);
@@ -41,3 +45,13 @@ const ActionAlerts = ({ message, severity }) => {
 };
 
 export default ActionAlerts;
+
+//   <Alert
+//     severity={props.severity}
+//     onClose={() => {
+//       handleClose();
+//     }}
+//     className={`${opendialog ? "openAlert" : classes.closeAlert} `}
+//   >
+//     {props.message}
+//   </Alert>;
