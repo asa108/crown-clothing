@@ -57,12 +57,12 @@ const ContactUs = () => {
       <div className={`${showAlert ? "show-alert" : "hide-alert"}`}>
         {whichAlert ? (
           <ActionAlerts
-            message="This is a success alert — check it out!"
+            message="Your message has been sent!Thank you."
             severity="success"
           />
         ) : (
           <ActionAlerts
-            message="This is a fail alert — check it out!"
+            message="Your message has been failed! Please try agin."
             severity="error"
           />
         )}
