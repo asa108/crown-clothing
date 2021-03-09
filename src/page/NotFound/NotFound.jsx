@@ -1,9 +1,8 @@
 import React from "react";
 
-import "./errorpage.style.scss";
+import "./NotFound.scss";
 
 import { Link } from "react-router-dom";
-import HomePage from "../homepage/homepage.component";
 
 const ErrorPage = () => {
   return (

@@ -9,7 +9,7 @@ import ShopPage from "./page/shop/shop.component";
 import SignInAndSignUp from "./page/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import CheckoutPage from "./page/checkout/checkout.component.jsx";
 import ContactPage from "./page/contactpage/contactpage.component";
-import ErrorPage from "./page/404/errorpage.component.jsx";
+import NotFound from "./page/NotFound/NotFound.jsx";
 
 import Header from "./components/header/header.component.jsx";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -61,7 +61,7 @@ class App extends React.Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
             }
           />
-          <Route component={ErrorPage} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     );
