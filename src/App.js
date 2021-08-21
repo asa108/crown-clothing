@@ -9,7 +9,7 @@ import ShopPage from "./page/shop/shop.component";
 import SignInAndSignUp from "./page/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import CheckoutPage from "./page/checkout/checkout.component.jsx";
 import ContactPage from "./page/contactpage/contactpage.component";
-import PageNotFound from "./page/pagenotfound/404";
+import PageNotFound from "./page/pagenotfound/PageNotFound";
 
 import Header from "./components/header/header.component.jsx";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
